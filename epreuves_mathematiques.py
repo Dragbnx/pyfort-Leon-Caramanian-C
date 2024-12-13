@@ -31,3 +31,32 @@ def epreuve_math_factorielle():
     implementation d'une epreuve ou le joueur doit trouver la valeur de factiorelle de n
     """
     val = random.randint(1, 10)#choix du nombre entre 1 et 10
+
+def resoudre_equation_lineaire():
+    a = random.randint(1, 10)
+    b = random.randint(1, 10)
+    print(f"Resoudre l'équation : {a}x+{b} =0")
+    x = -b/a
+    print(x)
+    return x
+
+
+def epreuve_math_equation():
+    x = resoudre_equation_lineaire()
+    solution_utilisateur = str(input("Quelle est la valeur de x : "))
+    cpt = 0
+    if solution_utilisateur[0] != '-':
+        for i in range (len(solution_utilisateur)):
+            cpt += 1
+        if valeur == '/':
+            break
+        i = int(solution_utilisateur[:cpt-1])
+        z = int(solution_utilisateur[cpt+1:])
+    else:
+        return False
+    y = solution_utilisateur[cpt+1:] / solution_utilisateur[1:cpt-1]
+    if y == x:
+        return True
+    else:
+        return False
+
