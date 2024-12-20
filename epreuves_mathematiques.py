@@ -32,31 +32,62 @@ def epreuve_math_factorielle():
     """
     val = random.randint(1, 10)#choix du nombre entre 1 et 10
 
-def resoudre_equation_lineaire():
-    a = random.randint(1, 10)
-    b = random.randint(1, 10)
-    print(f"Resoudre l'équation : {a}x+{b} =0")
-    x = -b/a
-    print(x)
-    return x
 
+
+
+
+
+"""Fait par moi"""
+
+import random
+
+def  resoudre_equation_lineaire():
+    nominateur=random.randint(1,10)
+    denominateur=random.randint(1,10)
+    #nominateur*solution/denominateur=0
+    solution = -denominateur/nominateur
+    return nominateur,denominateur,solution
 
 def epreuve_math_equation():
-    x = resoudre_equation_lineaire()
-    solution_utilisateur = str(input("Quelle est la valeur de x : "))
-    cpt = 0
-    if solution_utilisateur[0] != '-':
-        for i in range (len(solution_utilisateur)):
-            cpt += 1
-        if valeur == '/':
-            break
-        i = int(solution_utilisateur[:cpt-1])
-        z = int(solution_utilisateur[cpt+1:])
-    else:
-        return False
-    y = solution_utilisateur[cpt+1:] / solution_utilisateur[1:cpt-1]
-    if y == x:
+    nominateur,denominateur,solution = resoudre_equation_lineaire()
+    reponse = (input(f" Soit l'équation {nominateur}x+{denominateur}=0, résoudre l'équation : "))
+    reponse = eval(reponse)
+    if solution == reponse:
         return True
     else:
         return False
+
+
+print(epreuve_math_equation())
+
+
+def factorielle(n):
+    """ Calcule la factorielle de n (notée n!) """
+    for i in range (n) :
+        solution = 1
+        if n == 0 :
+            return
+        else :
+            solution *= n
+
+def epreuve_math_factorielle():
+    """
+    créationde de la valeur random factoriel
+    """
+    val=random.randint(1,10)
+    solution = factoriel(val)
+    """appel de la fonction générant la réponse. """
+    if solution == input(f"Résoudre la factorielle {val}! : "):
+        return True
+    else :
+        return False
+
+print(epreuve_math_factoriel())
+
+
+
+
+
+
+
 
