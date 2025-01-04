@@ -26,25 +26,34 @@ def premier_plus_proche(n):
         n += 1
     return n
 
+
+
+def epreuve_math_premier():
+    nb = random.randint(10, 20)
+    reponse = premier_plus_proche(nb)
+    print(f"Quel est le premier le plus proche de {nb} ?")
+    entree = input("Votre réponse est : ")
+    while not est_premier(entree):
+        print("Entree non valide.")
+        entree = input("Votre réponse est : ")
+    return reponse == entree
+
 def epreuve_math_factorielle():
-    """ None -> bool
-    implementation d'une epreuve ou le joueur doit trouver la valeur de factiorelle de n
     """
-    val = random.randint(1, 10)#choix du nombre entre 1 et 10
+    créationde de la valeur random factoriel
+    """
+    val=random.randint(1,10)
+    solution = factorielle(val)#appel de la fonction générant la réponse.
+    if solution == input(f"Résoudre la factorielle {val}! : "):
+        return True
+    else :
+        return False
 
 
-
-
-
-
-"""Fait par moi"""
-
-import random
 
 def  resoudre_equation_lineaire():
     nominateur=random.randint(1,10)
-    denominateur=random.randint(1,10)
-    #nominateur*solution/denominateur=0
+    denominateur=random.randint(1,10) #nominateur*solution/denominateur=0
     solution = -denominateur/nominateur
     return nominateur,denominateur,solution
 
@@ -58,33 +67,11 @@ def epreuve_math_equation():
         return False
 
 
-print(epreuve_math_equation())
 
-
-def factorielle(n):
-    """ Calcule la factorielle de n (notée n!) """
-    for i in range (n) :
-        solution = 1
-        if n == 0 :
-            return
-        else :
-            solution *= n
-
-def epreuve_math_factorielle():
-    """
-    créationde de la valeur random factoriel
-    """
-    val=random.randint(1,10)
-    solution = factoriel(val)
-    """appel de la fonction générant la réponse. """
-    if solution == input(f"Résoudre la factorielle {val}! : "):
-        return True
-    else :
-        return False
-
-print(epreuve_math_factoriel())
-
-
+def epreuve_math():
+    epreuves = [epreuve_math_equation, epreuve_math_factorielle, epreuve_math_premier]
+    epreuve = random.choice(epreuves)
+    return epreuve()
 
 
 
