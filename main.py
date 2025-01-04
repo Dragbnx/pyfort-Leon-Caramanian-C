@@ -1,7 +1,6 @@
 from epreuves_mathematiques import *
-
-x = epreuve_math_equation()
-if x == True :
-    print("Correct! Vous avez gagnez une clé.")
-else :
-    print("Incorrect!")
+from enigme_pere_fouras import *
+from epreuves_logiques import *
+from epreuve_finale import *
+from epreuves_hasard import *
+from fonctions_utiles import *

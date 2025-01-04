@@ -132,7 +132,9 @@ def jeu_bataille_naval():
         joueur = suiv(joueur)
     if gagne(grille_tirs_joueurs):
         print("Vous avez gagné!")
+        return True
     else:
         print("Vous avez perdu!")
+        return False
 
 jeu_bataille_naval()
