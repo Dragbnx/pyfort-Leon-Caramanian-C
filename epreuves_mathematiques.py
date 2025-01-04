@@ -1,4 +1,7 @@
 import random
+from verif_saisie import *
+
+
 
 def factorielle(n):
     """int -> int
@@ -13,7 +16,7 @@ def est_premier(n):
     """ int -> bool
     renvoie si n est un nombre premier
     """
-    for i in range(1, n): #boucle pour verifier chaque valeurs entre 1 et lui-même
+    for i in range(2, n): #boucle pour verifier chaque valeurs entre 1 et lui-même
         if n % i == 0:
             return False
     return True
@@ -33,10 +36,10 @@ def epreuve_math_premier():
     reponse = premier_plus_proche(nb)
     print(f"Quel est le premier le plus proche de {nb} ?")
     entree = input("Votre réponse est : ")
-    while not est_premier(entree):
+    while not verification_saisie_entier(entree):
         print("Entree non valide.")
         entree = input("Votre réponse est : ")
-    return reponse == entree
+    return reponse == int(entree)
 
 def epreuve_math_factorielle():
     """
@@ -67,14 +70,7 @@ def epreuve_math_equation():
         return False
 
 
-
 def epreuve_math():
     epreuves = [epreuve_math_equation, epreuve_math_factorielle, epreuve_math_premier]
     epreuve = random.choice(epreuves)
     return epreuve()
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-from fonctions_utiles import verification_saisie_entier
+from verif_saisie import *
 from random import randint
 
 
@@ -83,6 +83,7 @@ def tour(joueur, grille_tirs_joueurs, grille_adversaires):
         affiche_grille(grille_tirs_joueurs, "Rappel de l'historique des tirs que vous avez effectués")
         x, y = demande_position()
         while grille_tirs_joueurs[x][y] == "X" or grille_tirs_joueurs[x][y] == "·":
+            print("Vous avez déja tiré ici")
             x, y = demande_position()
         if grille_adversaires[x][y] == "B":
             grille_tirs_joueurs[x][y] = "X"
@@ -136,5 +137,3 @@ def jeu_bataille_naval():
     else:
         print("Vous avez perdu!")
         return False
-
-jeu_bataille_naval()

@@ -1,12 +1,8 @@
-def verification_saisie_entier(saisie):
-    """ str -> bool
-    renvoie True si la saisie est un entier, False sinon
-    """
-    if saisie == '': return False
-    for elm in saisie:
-        if not ord('0') <= ord(elm) <= ord('9'): return False
-    return True
-
+from epreuves_mathematiques import *
+from enigme_pere_fouras import *
+from epreuves_logiques import *
+from epreuves_hasard import *
+from verif_saisie import *
 
 
 def introduction():
@@ -57,7 +53,11 @@ def menu_epreuve():
     while not verification_saisie_entier(choix) or not 1 <= int(choix) <= 4:
         print("La valeur n'est pas valide")
         choix = input("Entrer choix : ")
-    return choix
+    match choix:
+        case '1': return epreuve_math()
+        case '2': return jeu_bataille_naval()
+        case '3': return epreuves_hasard()
+        case '4': return enigme_pere_fouras()
 
 
 def choisir_joueur(equipe):
@@ -67,7 +67,7 @@ def choisir_joueur(equipe):
     while not verification_saisie_entier(choix_joueur) or not 0 < int(choix_joueur) <= len(equipe) :
         print("La valeur n'est pas valide")
         choix_joueur = input("Entrer le numéro du joueur : ")
-    return equipe[int(choix_joueur)]
+    return equipe[int(choix_joueur)-1]
 
 
 
