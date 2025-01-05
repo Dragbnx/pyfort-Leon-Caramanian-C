@@ -1,4 +1,6 @@
-import json, random
+import json
+import random
+
 
 def charger_enigmes(fichier):
     """str -> Table[dic]
@@ -8,7 +10,7 @@ def charger_enigmes(fichier):
     with open(fichier, "r", encoding="utf-8") as file:
         data = json.load(file)
     for elm in data:
-        enigme.append({elm['question']:elm['reponse']})
+        enigme.append({elm['question']: elm['reponse']})
     return enigme
 
 

@@ -7,7 +7,7 @@ from verif_saisie import *
 
 def introduction():
     """none -> none
-    affiche les regles  et dis bienvenu !
+    affiche les regles  et dis bienvenue !
     """
     print("Bienvenue sur pyfort ! \nLes régles sont simples, vous devez récuperer 3 clé afin de pouvoir débloquer la salle du trésor...\
      \nUne fois dans la salle du trésor vous devez trouver le mot secret afin de gagner la partie !\
@@ -67,8 +67,6 @@ def choisir_joueur(equipe):
     """Table[Dic]-> Dic
     permet de selectionner un joueur d'une equipe
     """
-
-
     for i in range(len(equipe)):
         print(f"{i+1}. {equipe[i]['nom']} ({equipe[i]['profession']}) - {equipe[i]['leader']}")
     choix_joueur = input("Entrer le numéro du joueur : ")

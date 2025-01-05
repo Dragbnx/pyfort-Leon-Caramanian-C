@@ -1,34 +1,35 @@
 import random
-from verif_saisie import *
 
+from verif_saisie import *
 
 
 def factorielle(n):
     """int -> int
     renvoie la valeur de n! la fonction est code de maniere recursive
     """
-    if n == 0: #cas de base
+    if n == 0:  # cas de base
         return 1
-    else: #itération pour les n-1
-        return n * factorielle(n-1)
+    else:  # itération pour les n-1
+        return n * factorielle(n - 1)
+
 
 def est_premier(n):
     """ int -> bool
     renvoie si n est un nombre premier
     """
-    for i in range(2, n): #boucle pour verifier chaque valeurs entre 1 et lui-même
+    for i in range(2, n):  # boucle pour verifier chaque valeurs entre 1 et lui-même
         if n % i == 0:
             return False
     return True
+
 
 def premier_plus_proche(n):
     """ int -> int
     renvoie le premier nombre premier supérieur ou égal à n
     """
-    while not est_premier(n): #iteration tant que n n'est pas premier
+    while not est_premier(n):  # iteration tant que n n'est pas premier
         n += 1
     return n
-
 
 
 def epreuve_math_premier():
@@ -44,12 +45,13 @@ def epreuve_math_premier():
         entree = input("Votre réponse est : ")
     return reponse == int(entree)
 
+
 def epreuve_math_factorielle():
     """None -> Bool
     effectue l'epreuve factorielle
     """
-    val=random.randint(1,10)
-    solution = factorielle(val)#appel de la fonction générant la réponse.
+    val = random.randint(1, 10)
+    solution = factorielle(val)  # appel de la fonction générant la réponse.
     reponse = input(f"Résoudre la factorielle {val}! : ")
     while not verification_saisie_entier(reponse):
         print("Entree non valide.")
@@ -57,26 +59,26 @@ def epreuve_math_factorielle():
     if solution == int(reponse):
         print("Bravo !")
         return True
-    else :
+    else:
         print("C'est la mauvaise réponse...")
         return False
-
 
 
 def resoudre_equation_lineaire():
     """None -> int, int, float
     résous une équation linéaire
     """
-    nominateur=random.randint(1,10)
-    denominateur=random.randint(1,10) #nominateur*solution/denominateur=0
-    solution = -denominateur/nominateur
-    return nominateur,denominateur,solution
+    nominateur = random.randint(1, 10)
+    denominateur = random.randint(1, 10)  # nominateur*solution/denominateur=0
+    solution = -denominateur / nominateur
+    return nominateur, denominateur, solution
+
 
 def epreuve_math_equation():
     """None -> Bool
     effectue l'epreuve des équations
     """
-    nominateur,denominateur,solution = resoudre_equation_lineaire()
+    nominateur, denominateur, solution = resoudre_equation_lineaire()
     reponse = (input(f" Soit l'équation {nominateur}x+{denominateur}=0, résoudre l'équation : "))
     reponse = eval(reponse)
     if solution == reponse:
@@ -92,5 +94,6 @@ def epreuve_math():
     epreuves = [epreuve_math_equation, epreuve_math_factorielle, epreuve_math_premier]
     epreuve = random.choice(epreuves)
     return epreuve()
+
 
 epreuve_math_factorielle()

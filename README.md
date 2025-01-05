@@ -19,7 +19,45 @@
     5.4 - pere_fouras
     6 - epreuve final 
     7 - enregister_historique 
-  Détails des fonctions implémentées : 
+  Détails des fonctions implémentées :
+    jeu() -> effectue le jeu
+    verification_saisie_entier() -> verifie que l'entree est bien un entier
+    introduction() -> affiche les regles  et dis bienvenue !
+    composer_equipes() -> permet de composer les équipes
+    menu_epreuve() -> permet au jouer de choisir son épreuve
+    choisir_joueur() -> permet de selectionner un joueur d'une equipe
+    enregistrer_historique() -> enregistre un historique de la partie d'une equipe
+    charger_enigmes() -> charge les enigmes depuis le fichier "fichier"
+    enigme_pere_fouras() -> simule une rencontre avec le pere fouras
+    epreuve_math() -> choisi une epreuve depuis epreuves pour le joueur
+    factorielle() -> renvoie la valeur de n! la fonction est code de maniere recursive
+    est_premier() -> renvoie si n est un nombre premier
+    premier_plus_proche() -> renvoie le premier nombre premier supérieur ou égal à n
+    epreuve_math_premier() -> effectue l'epreuve du nb premier
+    epreuve_math_factorielle() -> effectue l'epreuve factorielle
+    resoudre_equation_lineaire() -> résous une équation linéaire
+    epreuve_math_equation() ->  effectue l'epreuve des équations
+    jeu_des() -> simule le jeu de dés
+    placement_bonneteau() -> permet de placer la cle sous un bonneteau
+    bonneteau() -> simule le jeu du bonneteau
+    epreuves_hasard() -> choisi une epreuve depuis epreuves pour le joueur
+    suiv(joueur) -> Renvoie le joueur suivant
+    grille_vide() -> initialise une grille vide
+    charger_indices_salle() -> charge les indices du fichier en dictionnaire
+    salle_De_tresor() -> simule l'etape du trésor
+    affiche_grille() -> Affiche la grille avec un message
+    demande_position() -> Demande au joueur de saisir une position (x, y)
+    init() -> permet d'initailiser la grille de jeu
+    init_bot() -> permet d'initailiser la grille de jeu pour un bot
+    tour() -> Permet à un joueur de jouer un tour
+    gagne(grille_tirs_joueurs) -> retourne si la grille du joueur est gagnante"""
+    jeu_bataille_naval() -> Déroulement du jeu de bataille navale
+
+
+
+
+
+
   Gestion des Entrées et Erreurs :
 
 3 . Journal de Bord 

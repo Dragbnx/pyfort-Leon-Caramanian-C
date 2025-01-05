@@ -1,7 +1,6 @@
-from verif_saisie import *
 from random import randint
 
-
+from verif_saisie import *
 
 
 def suiv(joueur):
@@ -10,11 +9,13 @@ def suiv(joueur):
     """
     return 1 if joueur == 0 else 0
 
+
 def grille_vide():
     """None -> Table[[string, string, string], [string, string, string], [string, string, string]]
     initialise une grille vide
     """
     return [[" " for _ in range(3)] for _ in range(3)]
+
 
 def affiche_grille(grille, message):
     """Table[[string, string, string], [string, string, string], [string, string, string]], string -> None
@@ -38,9 +39,10 @@ def demande_position():
         y = input("Entrez la position (colonne) entre 1 et 3 : ")
         if verification_saisie_entier(x) and verification_saisie_entier(y):
             x, y = int(x) - 1, int(y) - 1
-            if 0 <= x < 3 and 0 <= y < 3 :
+            if 0 <= x < 3 and 0 <= y < 3:
                 return x, y
         print("Coordonnées invalides. Veuillez réessayer.")
+
 
 def init():
     """ None -> Table[[string, string, string], [string, string, string], [string, string, string]]
@@ -48,7 +50,7 @@ def init():
     """
     grille = grille_vide()
     print("Positionnez vos bateaux :")
-    for i in range(1,3):
+    for i in range(1, 3):
         print(f"Bateau {i}")
         x, y = demande_position()
         while not grille[x][y] == " ":
@@ -56,6 +58,7 @@ def init():
             x, y = demande_position()
         grille[x][y] = 'B'
     return grille
+
 
 def init_bot():
     """ None -> Table[[string, string, string], [string, string, string], [string, string, string]]
@@ -68,9 +71,6 @@ def init_bot():
             x, y = randint(0, 2), randint(0, 2)
         grille[x][y] = 'B'
     return grille
-
-
-
 
 
 def tour(joueur, grille_tirs_joueurs, grille_adversaires):
@@ -95,7 +95,7 @@ def tour(joueur, grille_tirs_joueurs, grille_adversaires):
         x, y = randint(0, 2), randint(0, 2)
         while grille_tirs_joueurs[x][y] == "X" or grille_tirs_joueurs[x][y] == "·":
             x, y = randint(0, 2), randint(0, 2)
-        print(f"Le maître du jeu a tiré en position {x + 1 ,y + 1}")
+        print(f"Le maître du jeu a tiré en position {x + 1, y + 1}")
         if grille_adversaires[x][y] == "B":
             print("Touché coulé !")
             grille_tirs_joueurs[x][y] = "X"
@@ -103,6 +103,7 @@ def tour(joueur, grille_tirs_joueurs, grille_adversaires):
             print("Dans l'eau...")
             grille_tirs_joueurs[x][y] = "·"
     print()
+
 
 def gagne(grille_tirs_joueurs):
     """Table[[string, string, string], [string, string, string], [string, string, string]] -> bool
@@ -114,15 +115,17 @@ def gagne(grille_tirs_joueurs):
                 cpt += 1
     return cpt == 2
 
+
 def jeu_bataille_naval():
     """ None -> None
     Déroulement du jeu de bataille navale
     """
     print("Chaque joueur doit placer 2 bateaux sur une grille de 3x3.")
-    print("Les bateaux sont représentés par 'B' et les tirs manqués par '.'. \nLes bateaux coulés sont marqués par 'x'.")
+    print(
+        "Les bateaux sont représentés par 'B' et les tirs manqués par '.'. \nLes bateaux coulés sont marqués par 'x'.")
     grille_joueurs = init()
     grille_tirs_joueurs = grille_vide()
-    grille_tirs_maitre =grille_vide()
+    grille_tirs_maitre = grille_vide()
     grille_maitre = init_bot()
     joueur = 0
     while not gagne(grille_tirs_joueurs) and not gagne(grille_tirs_maitre):
