@@ -1,6 +1,9 @@
 import json, random
 
 def charger_enigmes(fichier):
+    """str -> Table[dic]
+    charge les enigmes depuis le fichier "fichier"
+    """
     enigme = []
     with open(fichier, "r", encoding="utf-8") as file:
         data = json.load(file)
@@ -10,6 +13,9 @@ def charger_enigmes(fichier):
 
 
 def enigme_pere_fouras():
+    """None -> Bool
+    simule une rencontre avec le pere fouras
+    """
     enigmes = charger_enigmes("data/enigmesPF.json")
     enigme = random.choice(enigmes)
     essaie = 3

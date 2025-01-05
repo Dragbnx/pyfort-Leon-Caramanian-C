@@ -32,6 +32,9 @@ def premier_plus_proche(n):
 
 
 def epreuve_math_premier():
+    """ None -> Bool
+    effectue l'epreuve du nb premier
+    """
     nb = random.randint(10, 20)
     reponse = premier_plus_proche(nb)
     print(f"Quel est le premier le plus proche de {nb} ?")
@@ -42,25 +45,37 @@ def epreuve_math_premier():
     return reponse == int(entree)
 
 def epreuve_math_factorielle():
-    """
-    créationde de la valeur random factoriel
+    """None -> Bool
+    effectue l'epreuve factorielle
     """
     val=random.randint(1,10)
     solution = factorielle(val)#appel de la fonction générant la réponse.
-    if solution == input(f"Résoudre la factorielle {val}! : "):
+    reponse = input(f"Résoudre la factorielle {val}! : ")
+    while not verification_saisie_entier(reponse):
+        print("Entree non valide.")
+        reponse = input(f"Résoudre la factorielle {val}! : ")
+    if solution == int(reponse):
+        print("Bravo !")
         return True
     else :
+        print("C'est la mauvaise réponse...")
         return False
 
 
 
-def  resoudre_equation_lineaire():
+def resoudre_equation_lineaire():
+    """None -> int, int, float
+    résous une équation linéaire
+    """
     nominateur=random.randint(1,10)
     denominateur=random.randint(1,10) #nominateur*solution/denominateur=0
     solution = -denominateur/nominateur
     return nominateur,denominateur,solution
 
 def epreuve_math_equation():
+    """None -> Bool
+    effectue l'epreuve des équations
+    """
     nominateur,denominateur,solution = resoudre_equation_lineaire()
     reponse = (input(f" Soit l'équation {nominateur}x+{denominateur}=0, résoudre l'équation : "))
     reponse = eval(reponse)
@@ -71,6 +86,11 @@ def epreuve_math_equation():
 
 
 def epreuve_math():
+    """None -> bool
+    choisi une epreuve depuis epreuves pour le joueur
+    """
     epreuves = [epreuve_math_equation, epreuve_math_factorielle, epreuve_math_premier]
     epreuve = random.choice(epreuves)
     return epreuve()
+
+epreuve_math_factorielle()

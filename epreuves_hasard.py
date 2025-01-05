@@ -3,6 +3,9 @@ import time
 
 
 def jeu_des ():
+    """None -> Bool
+     simule le jeu de dés
+    """
     print("Voici les règles du jeu : \n\
 Vous allez lancer deux dés et si au moins l'un d'eux tombent sur 6 vous remporter la victoire. \n\
 Si vous échouez le tour revient au maître.\n\
@@ -41,6 +44,9 @@ Le match se termine aussi par une défaite si au bout de 3 tentive vous n'arrive
 
 
 def placement_bonneteau():
+    """None -> str
+    permet de placer la cle sous un bonneteau
+     """
     #tirage du banneteau avec la clé
     gobelet = random.randint(1,3)
     if gobelet == 1 :
@@ -52,6 +58,9 @@ def placement_bonneteau():
     return solution
 
 def bonneteau():
+    """None -> bool
+    simule le jeu du bonneteau
+    """
     print("Vous avez 2 tentatives pour réussir le challenge. \n\
     Vous devez trouver la clé placé sous le bonneteau  ")
     #initialisation du nombre de tentative
@@ -75,6 +84,9 @@ def bonneteau():
 
 
 def epreuves_hasard():
+    """None -> bool
+    choisi une epreuve depuis epreuves pour le joueur
+    """
     epreuves = [jeu_des, bonneteau]
     epreuve = random.choice(epreuves)
     return epreuve()

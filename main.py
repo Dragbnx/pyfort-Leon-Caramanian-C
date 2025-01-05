@@ -6,10 +6,10 @@ from epreuves_hasard import *
 from fonctions_utiles import *
 
 
-
-
-
 def jeu():
+    """None -> None
+    permet de faire tourner le jeu, avec la création de d'equipe et la gestion d'epreuve
+    """
     introduction()
     equipes = composer_equipes()
     nb_cle = 0
@@ -22,7 +22,8 @@ def jeu():
             print(f"Bravo, vous avez {nb_cle} clé")
         else:
             print("Raté !")
-    salle_De_tresor()
+    result = salle_De_tresor()
+    enregistrer_historique(equipes, result)
 
 
 
