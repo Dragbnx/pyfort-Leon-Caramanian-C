@@ -30,8 +30,7 @@ Le match se termine aussi par une défaite si au bout de 3 tentive vous n'arrive
         time.sleep(1)
         # Même procédé mais automatisé pour le tour du maître
         stockage_maitre = (random.randint(1, 6), random.randint(1, 6))
-        print("Le premier dé du maître est un {} et le deuxiéme est un {}.\n".format(stockage_maitre[0],
-                                                                                     stockage_maitre[1]))
+        print("Le premier dé du maître est un {} et le deuxiéme est un {}.\n".format(stockage_maitre[0], stockage_maitre[1]))
         for i in range(2):
             if stockage_maitre[i] == 6:
                 print("Il a obtenu un 6, vous avez perdu ! ")

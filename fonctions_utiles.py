@@ -81,7 +81,7 @@ def enregistrer_historique(equipe, resultat):
     """Table[Dic], Bool-> None
     enregistre un historique de la partie d'une equipe
     """
-    with open("output/historique.txt", "a") as file:
+    with open("output/historique.txt", "a", encoding="utf-8") as file:
         for joueur in equipe:
             file.write(f"{joueur['nom']} ({joueur['profession']}) - {joueur['leader']}\n")
             file.write(f"Nombre de cle gagné : {joueur['cle']}\n\n")

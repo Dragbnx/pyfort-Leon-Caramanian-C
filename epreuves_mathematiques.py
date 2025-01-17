@@ -94,6 +94,3 @@ def epreuve_math():
     epreuves = [epreuve_math_equation, epreuve_math_factorielle, epreuve_math_premier]
     epreuve = random.choice(epreuves)
     return epreuve()
-
-
-epreuve_math_factorielle()
